@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import { formatDate, getBlogPosts } from 'app/blog/utils';
+import { formatDate, getBlogProjects } from 'app/blog/utils';
 
-export function BlogPosts() {
-  const allBlogs = getBlogPosts();
+export function BlogProjects() {
+  const allProjects = getBlogProjects();
 
   return (
     <div className="space-y-8">
-      {allBlogs
+      {allProjects
         .sort((a, b) => {
           if (
             new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
