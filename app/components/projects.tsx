@@ -1,4 +1,4 @@
-import Link from 'next/link';
+/*import Link from 'next/link';
 import { formatDate, getBlogProjects } from 'app/blog/utils';
 
 export function BlogProjects() {
@@ -28,4 +28,4 @@ export function BlogProjects() {
         ))}
     </div>
   );
-}
+}*/
