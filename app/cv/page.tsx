@@ -7,19 +7,19 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="p-8 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-semibold mb-6">Contactez-moi</h1>
-      <p className="text-lg mb-6">
+    <section>
+      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">Contactez-moi</h1>
+      <p className="text-lg mb-8">
         Si vous avez des questions, des demandes ou si vous souhaitez discuter de potentielles collaborations, n'hésitez pas à me contacter en utilisant le formulaire ci-dessous.
       </p>
 
       <div className="flex flex-col lg:flex-row">
-        <div className="lg:w-1/2 lg:pr-8">
+        <div className="lg:w-1/2 lg:pr-16"> 
           <h2 className="text-2xl font-semibold mb-4">Formulaire de Contact</h2>
           <form
-            action="https://formspree.io/f/mblryzvy" // je dipose de 50 réceptions de mails par mois
+            action="https://formspree.io/f/mblryzvy" // Je dispose de 50 réceptions de mails par mois
             method="POST"
-            className="space-y-4"
+            className="space-y-6" // Increased spacing between form elements
           >
             <div>
               <label htmlFor="name" className="block text-lg font-medium mb-2">Nom</label>
@@ -28,7 +28,8 @@ export default function ContactPage() {
                 id="name"
                 name="name"
                 required
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-4 border border-gray-300 rounded-lg text-lg" // Increased padding and font size
+                placeholder="Votre nom complet"
               />
             </div>
             <div>
@@ -38,7 +39,8 @@ export default function ContactPage() {
                 id="email"
                 name="email"
                 required
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-4 border border-gray-300 rounded-lg text-lg" // Increased padding and font size
+                placeholder="Votre adresse email"
               />
             </div>
             <div>
@@ -46,14 +48,15 @@ export default function ContactPage() {
               <textarea
                 id="message"
                 name="message"
-                rows={6}
+                rows={8} // Increased rows for a larger textarea
                 required
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-4 border border-gray-300 rounded-lg text-lg" // Increased padding and font size
+                placeholder="Votre message"
               ></textarea>
             </div>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300"
             >
               Envoyer
             </button>
