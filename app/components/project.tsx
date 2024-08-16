@@ -3,7 +3,7 @@ import { FaReact, FaNodeJs, FaVuejs, FaDatabase, FaCode, FaMobileAlt } from 'rea
 import { SiTailwindcss, SiVuetify, SiGraphql, SiNextdotjs, SiMongodb } from 'react-icons/si'; // Import necessary icons
 
 const iconMap = {
-  'Next.js': <SiNextdotjs className="w-6 h-6 text-black dark:text-white" />,
+  'Next.js': <SiNextdotjs className="w-6 h-6 text-[#003366]" />,
   'Tailwind CSS': <SiTailwindcss className="w-6 h-6 text-teal-600" />,
   'Node.js': <FaNodeJs className="w-6 h-6 text-green-600" />,
   'Vue.js': <FaVuejs className="w-6 h-6 text-green-500" />,
@@ -16,23 +16,23 @@ const iconMap = {
 
 const Project = ({ title, description, technologies, link }) => {
   return (
-    <div className="border border-gray-300 rounded-lg p-6 shadow-lg">
-      <h2 className="text-2xl font-semibold mb-2">{title}</h2>
-      <p className="text-lg mb-4">{description}</p>
+    <div className="border border-gray-300 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
+      <h2 className="text-2xl font-semibold mb-2 text-[#003366]">{title}</h2> {/* Titre en bleu foncé */}
+      <p className="text-gray-800 mb-4">{description}</p> {/* Texte en gris foncé */}
       <div className="mb-4 flex flex-wrap gap-2">
         <strong>Technologies :</strong>
         <div className="flex flex-wrap gap-2">
           {technologies.map((tech, index) => (
             <div key={index} className="flex items-center space-x-2">
-              {iconMap[tech]} {/* Display the icon */}
-              <span className="text-sm">{tech}</span> {/* Optionally display the text */}
+              {iconMap[tech]} {/* Affiche l'icône */}
+              <span className="text-sm">{tech}</span> {/* Optionnellement afficher le texte */}
             </div>
           ))}
         </div>
       </div>
       <a
         href={link}
-        className="text-blue-500 hover:underline"
+        className="text-[#0066CC] hover:underline"
         target="_blank"
         rel="noopener noreferrer"
       >

@@ -1,0 +1,25 @@
+/* Conteneur pour masquer l'excès de contenu */
+.overflow-container {
+    overflow: hidden; /* Masque le débordement */
+    white-space: nowrap; /* Assure que les éléments restent en ligne */
+    position: relative;
+    width: 100%; /* Fixez la largeur du conteneur */
+  }
+  
+  /* Contenu qui défile */
+  .animate-scroll {
+    display: inline-flex; /* Utilisez inline-flex pour aligner les éléments en ligne */
+    white-space: nowrap; /* Assure que les éléments restent en ligne */
+    animation: scroll 30s linear infinite; /* Défilement fluide */
+  }
+  
+  /* Animation pour le défilement */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%); /* Déplace le contenu sur toute la largeur */
+    }
+  }
+  
