@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import './nav.css'; // Importer le fichier CSS
+import { FaSun, FaMoon } from 'react-icons/fa'; 
+import './nav.css'; 
 
 const navItems = {
   '/': {
-    name: 'Acceuil',
+    name: 'Accueil',
   },
   '/blog': {
     name: 'Blog',
@@ -24,6 +25,7 @@ const navItems = {
 
 export function Navbar() {
   const [bouncing, setBouncing] = useState({});
+  const [darkMode, setDarkMode] = useState(false); // État pour le mode sombre
 
   const handleClick = (path) => {
     setBouncing((prev) => ({
@@ -37,6 +39,11 @@ export function Navbar() {
         [path]: false,
       }));
     }, 600); // Durée de l'animation
+  };
+
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => !prev);
+    document.documentElement.classList.toggle('dark', !darkMode); // Appliquer la classe dark au document
   };
 
   return (
@@ -55,6 +62,14 @@ export function Navbar() {
               </Link>
             ))}
           </div>
+          <button
+            onClick={toggleDarkMode}
+            className="ml-auto p-3 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-gray-300 dark:hover:bg-gray-700"
+          >
+            <span className="text-xl text-gray-600 dark:text-gray-300">
+              {darkMode ? <FaSun /> : <FaMoon />}
+            </span>
+          </button>
         </nav>
       </div>
     </aside>
