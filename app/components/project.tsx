@@ -17,15 +17,15 @@ const iconMap = {
 const Project = ({ title, description, technologies, link }) => {
   return (
     <div className="border border-gray-300 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
-      <h2 className="text-2xl font-semibold mb-2 text-[#003366]">{title}</h2> {/* Titre en bleu foncé */}
-      <p className="text-gray-800 mb-4">{description}</p> {/* Texte en gris foncé */}
+      <h2 className="text-2xl font-semibold mb-2 text-[#003366]">{title}</h2> 
+      <p className="text-gray-800 mb-4">{description}</p> 
       <div className="mb-4 flex flex-wrap gap-2">
         <strong>Technologies :</strong>
         <div className="flex flex-wrap gap-2">
           {technologies.map((tech, index) => (
             <div key={index} className="flex items-center space-x-2">
-              {iconMap[tech]} {/* Affiche l'icône */}
-              <span className="text-sm">{tech}</span> {/* Optionnellement afficher le texte */}
+              {iconMap[tech]}
+              <span className="text-sm">{tech}</span> 
             </div>
           ))}
         </div>
@@ -36,7 +36,7 @@ const Project = ({ title, description, technologies, link }) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Voir le projet
+        Voir le projet {" >>"}
       </a>
     </div>
   );
