@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { MinusIcon } from '@heroicons/react/24/outline'; // Importation de l'icône Menu
-import Logo from '/app/images/logo.png';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'; // Importer les icônes
+import Logo from '/app/images/logo.png'; // Assurez-vous que le chemin du logo est correct
 
 const navItems = {
   '/': { name: 'Accueil' },
@@ -15,60 +15,75 @@ const navItems = {
 };
 
 export function Navbar() {
-  const [bouncing, setBouncing] = useState({});
+  const [bouncing, setBouncing] = useState<{ [key: string]: boolean }>({});
+  const [rotating, setRotating] = useState(false); // État pour gérer la rotation
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleClick = (path: string) => {
-    setBouncing((prev) => ({
+    setBouncing(prev => ({
       ...prev,
       [path]: true,
     }));
 
+    setRotating(true); // Démarrer la rotation
+
     setTimeout(() => {
-      setBouncing((prev) => ({
+      setBouncing(prev => ({
         ...prev,
         [path]: false,
       }));
-    }, 600); // Durée de l'animation
+      setRotating(false); // Arrêter la rotation après l'animation
+    }, 1000); // Durée de l'animation de rotation (doit correspondre à la durée définie dans le CSS)
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
+    setIsMenuOpen(prev => !prev);
   };
 
   return (
-    <aside className="mb-16">
-      <div className="lg:sticky lg:top-20 bg-white shadow-md rounded-lg py-4">
-        <nav className="flex items-center justify-between px-4">
-          <div className="flex items-center">
-            <Image
-              src={Logo}
-              alt="Logo"
-              className="w-16 h-auto"
-            />
-            <button
-              onClick={toggleMenu}
-              className="lg:hidden ml-4 p-2 rounded-md text-gray-600 hover:bg-gray-200 focus:outline-none"
+    <div className="relative bg-white shadow-md">
+      {/* Container de la barre de menu */}
+      <div className="flex items-center justify-between py-4 px-6 lg:px-8">
+        {/* Logo fixe à gauche */}
+        <div className="flex items-center flex-shrink-0">
+          <Image
+            src={Logo}
+            alt="Logo"
+            className={`w-12 h-12 ${rotating ? 'animate-spin' : ''}`} // Utilisez animate-spin pour la rotation
+            width={48} // Ajustez la largeur selon vos besoins
+            height={48} // Ajustez la hauteur selon vos besoins
+          />
+        </div>
+
+        {/* Bouton de bascule du menu pour les petits écrans */}
+        <button
+          onClick={toggleMenu}
+          className="lg:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100 focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? (
+            <XMarkIcon className="h-6 w-6" />
+          ) : (
+            <Bars3Icon className="h-6 w-6" />
+          )}
+        </button>
+
+        {/* Liens de navigation */}
+        <div
+          className={`flex flex-col lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 items-center ${isMenuOpen ? 'block' : 'hidden'} lg:flex`}
+        >
+          {Object.entries(navItems).map(([path, { name }]) => (
+            <Link
+              key={path}
+              href={path}
+              className={`text-blue-600 px-3 py-1 rounded-md transition-transform duration-300 hover:scale-105 hover:bg-blue-100 ${bouncing[path] ? 'animate-bounce' : ''}`}
+              onClick={() => handleClick(path)}
             >
-              <MinusIcon className="h-6 w-6" />
-            </button>
-          </div>
-          <div
-            className={`lg:flex lg:space-x-4 space-y-4 lg:space-y-0 ${isMenuOpen ? 'block' : 'hidden'}`}
-          >
-            {Object.entries(navItems).map(([path, { name }]) => (
-              <Link
-                key={path}
-                href={path}
-                className={`text-gray-800 hover:bg-indigo-100 hover:text-indigo-600 py-2 px-4 rounded transition-all duration-300 ${bouncing[path] ? 'animate-bounce' : ''}`}
-                onClick={() => handleClick(path)}
-              >
-                {name}
-              </Link>
-            ))}
-          </div>
-        </nav>
+              {name}
+            </Link>
+          ))}
+        </div>
       </div>
-    </aside>
+    </div>
   );
 }

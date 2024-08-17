@@ -19,16 +19,17 @@
 .bounce {
   animation: bounce 0.6s ease-in-out;
 }
-
-.link {
-  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-  border-radius: 8px; /* Bordure arrondie */
-  padding: 0.5rem 1rem; /* Ajouter un peu d'espace autour du texte */
-  color: #1d4ed8; /* Couleur du texte par défaut */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.link:hover {
-  transform: scale(1.1); /* Zoom léger au survol */
-  background-color: #1d4ed8; /* Couleur d'arrière-plan au survol */
-  color: #ffffff; /* Couleur du texte au survol */
+.rotate {
+  animation: rotate 1s ease-in-out;
 }
+
+
