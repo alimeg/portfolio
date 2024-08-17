@@ -8,7 +8,7 @@ export const metadata = {
 export default function Page() {
   return (
     <section className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 text-[#003366]"> {/* Titre en bleu foncé */}
+      <h1 className="text-3xl font-bold mb-6 text-[#003366]"> 
         Articles de Blog
       </h1>
       <p className="text-lg mb-6 text-gray-800">

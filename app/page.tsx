@@ -50,7 +50,6 @@ export default function Page() {
               Expertise en développement mobile et full stack.
             </p>
           </section>
-  
           <section className="flex justify-center space-x-6">
             <SocialLink
               href="https://www.linkedin.com/in/ali-meghalet"
