@@ -8,10 +8,10 @@ export const metadata = {
 export default function Page() {
   return (
     <section className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 text-[#003366]"> 
+      <h1 className="text-3xl font-bold mb-6 text-[#003366] dark:text-[#66b2ff]">
         Articles de Blog
       </h1>
-      <p className="text-lg mb-6 text-gray-800">
+      <p className="text-lg mb-6 text-gray-800 dark:text-gray-300">
         Explorez mes derniers articles sur divers sujets. Cliquez sur les titres pour lire l'intégralité des articles.
       </p>
       <BlogPosts />

@@ -2,7 +2,7 @@ import React from 'react';
 import { FaLinkedin, FaGithub, FaJava, FaCode, FaMobileAlt, FaApple, FaAndroid, FaHtml5, FaCss3Alt, FaJs } from 'react-icons/fa';
 import Image from 'next/image';
 import photo from '/app/images/dev-photo.jpeg';
-import './components/skillscroller.css'
+import './components/skillscroller.css';
 import './global.css';
 import { SkillScroller } from './components/skillscroller'; 
 
@@ -28,69 +28,67 @@ export default function Page() {
     { icon: <FaJava />, text: 'Java' },
     { icon: <FaCode />, text: 'Full Stack' },
   ];
- 
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-100 to-indigo-200 flex items-center justify-center">
-        <main className="bg-white rounded-lg shadow-2xl p-8 m-4 max-w-2xl w-full space-y-8">
-          <header className="text-center">
-            <Image
-              src={photo}
-              alt="Meghalet Ali"
-              width={150}
-              height={150}
-              className="rounded-full mx-auto mb-4"
-            />
-            <h1 className="text-4xl font-bold text-gray-800 mb-2">Meghalet Ali</h1>
-            <p className="text-xl text-indigo-600 font-semibold">Développeur Mobile et Full Stack</p>
-          </header>
-  
-          <section className="space-y-4">
-            <p className="text-gray-600 text-center">
-              Passionné par la création d'applications innovantes et performantes.
-              Expertise en développement mobile et full stack.
-            </p>
-          </section>
-          <section className="flex justify-center space-x-6">
-            <SocialLink
-              href="https://www.linkedin.com/in/ali-meghalet"
-              icon={<FaLinkedin />}
-              label="LinkedIn"
-            />
-            <SocialLink
-              href="https://github.com/alimeg"
-              icon={<FaGithub />}
-              label="GitHub"
-            />
-          </section>
-  
-          <section className="text-center">
-            <a
-              href="/cv"
-              className="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition duration-300"
-            >
-              Me contacter
-            </a>
-          </section>
-          <section>
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
+      <main className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl p-8 m-4 max-w-2xl w-full space-y-8">
+        <header className="text-center">
+          <Image
+            src={photo}
+            alt="Meghalet Ali"
+            width={150}
+            height={150}
+            className="rounded-full mx-auto mb-4"
+          />
+          <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-2">Meghalet Ali</h1>
+          <p className="text-xl text-indigo-600 font-semibold dark:text-indigo-400">Développeur Mobile et Full Stack</p>
+        </header>
+
+        <section className="space-y-4">
+          <p className="text-gray-600 dark:text-gray-300 text-center">
+            Passionné par la création d'applications innovantes et performantes.
+            Expertise en développement mobile et full stack.
+          </p>
+        </section>
+        <section className="flex justify-center space-x-6">
+          <SocialLink
+            href="https://www.linkedin.com/in/ali-meghalet"
+            icon={<FaLinkedin />}
+            label="LinkedIn"
+          />
+          <SocialLink
+            href="https://github.com/alimeg"
+            icon={<FaGithub />}
+            label="GitHub"
+          />
+        </section>
+
+        <section className="text-center">
+          <a
+            href="/cv"
+            className="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition duration-300 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+          >
+            Me contacter
+          </a>
+        </section>
+        <section>
           <SkillScroller skills={skills} />
-          </section>
-        </main>
-      </div>
-    );
-  }
-  
-  function SocialLink({ href, icon, label }) {
-    return (
-      <a
-        href={href}
-        className="flex flex-col items-center text-gray-600 hover:text-indigo-600 transition-transform transform hover:scale-90 duration-300"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div className="text-3xl mb-1">{icon}</div>
-        <span className="text-sm">{label}</span>
-      </a>
-    );
-  }
-  
- 
+        </section>
+      </main>
+    </div>
+  );
+}
+
+function SocialLink({ href, icon, label }) {
+  return (
+    <a
+      href={href}
+      className="flex flex-col items-center text-gray-600 hover:text-indigo-600 transition-transform transform hover:scale-90 duration-300 dark:text-gray-300 dark:hover:text-indigo-400"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="text-3xl mb-1">{icon}</div>
+      <span className="text-sm">{label}</span>
+    </a>
+  );
+}
