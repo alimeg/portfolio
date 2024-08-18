@@ -1,6 +1,9 @@
-import React from 'react';
-import { FaReact, FaNodeJs, FaVuejs, FaDatabase, FaCode, FaMobileAlt } from 'react-icons/fa'; // Import necessary icons
-import { SiTailwindcss, SiVuetify, SiGraphql, SiNextdotjs, SiMongodb } from 'react-icons/si'; // Import necessary icons
+'use client';
+
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { FaReact, FaNodeJs, FaVuejs, FaMobileAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { SiTailwindcss, SiVuetify, SiGraphql, SiNextdotjs, SiMongodb } from 'react-icons/si';
 
 const iconMap = {
   'Next.js': <SiNextdotjs className="w-6 h-6 text-[#003366]" />,
@@ -14,7 +17,11 @@ const iconMap = {
   'GraphQL': <SiGraphql className="w-6 h-6 text-pink-600" />,
 };
 
-const Project = ({ title, description, technologies, link }) => {
+const Project = ({ title, description, technologies, link, additionalContent }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = () => setIsExpanded(!isExpanded);
+
   return (
     <div className="border border-gray-300 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
       <h2 className="text-2xl font-semibold mb-2 text-[#003366]">{title}</h2> 
@@ -30,14 +37,40 @@ const Project = ({ title, description, technologies, link }) => {
           ))}
         </div>
       </div>
-      <a
-        href={link}
-        className="text-[#0066CC] hover:underline"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Voir le projet {" >>"}
-      </a>
+      <div className="flex justify-between items-center mb-4">
+        <button
+          onClick={toggleExpand}
+          className="flex items-center space-x-1 text-[#0066CC] hover:underline focus:outline-none"
+        >
+          <span>{isExpanded ? 'Réduire' : 'Lire plus'}</span>
+          {isExpanded ? (
+            <FaChevronUp className="text-[#0066CC] text-xl" />
+          ) : (
+            <FaChevronDown className="text-[#0066CC] text-xl" />
+          )}
+        </button>
+        <div className="flex items-center space-x-2">
+          <a
+            href={link}
+            className="text-[#0066CC] hover:underline flex items-center"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Voir le projet
+          </a>
+        </div>
+      </div>
+      {/* Collapsible content */}
+      <div className={`transition-all duration-300 overflow-hidden ${isExpanded ? 'max-h-screen' : 'max-h-0'}`}>
+        <div className="mb-4">
+          {additionalContent && (
+            <>
+              <Image src={additionalContent.image} alt="Project" className="w-full h-auto rounded-lg mb-4" />
+              <p className="text-gray-600">{additionalContent.text}</p>
+            </>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
