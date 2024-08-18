@@ -62,7 +62,7 @@ export const ProjectList = () => {
           description={project.description}
           technologies={project.technologies}
           link={project.link}
-          additionalContent={project.additionalContent} // Pass additional content here
+          additionalContent={project.additionalContent}
         />
       ))}
     </div>

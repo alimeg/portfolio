@@ -4,8 +4,8 @@ import { useState } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'; // Importer les icônes
-import Logo from '/app/images/logo.png'; // Assurez-vous que le chemin du logo est correct
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'; 
+import Logo from '/app/images/logo.png'; 
 import './nav.css';
 
 const navItems = {
@@ -18,7 +18,7 @@ const navItems = {
 
 export function Navbar() {
   const [bouncing, setBouncing] = useState<{ [key: string]: boolean }>({});
-  const [rotating, setRotating] = useState(false); // État pour gérer la rotation
+  const [rotating, setRotating] = useState(false); 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleClick = (path: string) => {

@@ -3,12 +3,12 @@
     overflow: hidden; /* Masque le débordement */
     white-space: nowrap; /* Assure que les éléments restent en ligne */
     position: relative;
-    width: 100%; /* Fixez la largeur du conteneur */
+    width: 100%; 
   }
   
   /* Contenu qui défile */
   .animate-scroll {
-    display: inline-flex; /* Utilisez inline-flex pour aligner les éléments en ligne */
+    display: inline-flex; /* aligner les éléments en ligne */
     white-space: nowrap; /* Assure que les éléments restent en ligne */
     animation: scroll 30s linear infinite; /* Défilement fluide */
   }
@@ -19,7 +19,7 @@
       transform: translateX(0);
     }
     50% {
-      transform: translateX(-100%); /* Déplace le contenu sur toute la largeur */
+      transform: translateX(-100%); 
     }
   }
   

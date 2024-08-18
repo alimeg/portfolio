@@ -8,13 +8,13 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <section className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 text-[#003366] dark:text-[#cce0ff]">Contactez-moi</h1> {/* Titre en bleu foncé pour le mode clair et bleu clair pour le mode sombre */}
+      <h1 className="text-3xl font-bold mb-6 text-[#003366] dark:text-[#cce0ff]">Contactez-moi</h1> 
       <p className="text-base mb-6 text-gray-800 dark:text-gray-300">
         Si vous avez des questions, des demandes ou si vous souhaitez discuter de potentielles collaborations, n'hésitez pas à me contacter en utilisant le formulaire ci-dessous.
       </p>
 
       <div className="bg-white p-6 rounded-lg shadow-md max-w-4xl mx-auto dark:bg-gray-800 dark:shadow-lg">
-        <h2 className="text-2xl font-semibold mb-4 text-[#003366] dark:text-[#cce0ff]">Formulaire de Contact</h2> {/* Titre en bleu foncé pour le mode clair et bleu clair pour le mode sombre */}
+        <h2 className="text-2xl font-semibold mb-4 text-[#003366] dark:text-[#cce0ff]">Formulaire de Contact</h2> 
         <form
           action="https://formspree.io/f/mblryzvy" // Je dispose de 50 réceptions de mails par mois
           method="POST"
