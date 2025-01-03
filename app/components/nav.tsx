@@ -10,7 +10,7 @@ import './nav.css';
 
 const navItems = {
   '/': { name: 'Accueil' },
-  '/blog': { name: 'Blog' },
+  //'/blog': { name: 'Blog' },
   '/projects': { name: 'Projects' },
   '/cv': { name: 'Contact' },
   //'/rapport': { name: 'Rapport' },
