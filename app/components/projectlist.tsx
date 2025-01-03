@@ -1,9 +1,10 @@
 import React from 'react';
 import Project from './project'; 
-import Poke from '../images/poke-SC.png'
-import Portfolio from '../images/portfolio-SS.png'
-import Blog from '../images/blog-SS.png'
-import Fitness from '../images/fitness-SS.jpeg'
+import Poke from 'public/images/poke-SC.png'
+import Portfolio from 'public/images/portfolio-SS.png'
+import InvoiceAppImage from 'public/images/invoice.png'
+
+
 
 const projects = [
   {
@@ -25,31 +26,30 @@ const projects = [
     link: 'https://labo04-front.onrender.com/',
     additionalContent: {
       image: Poke,
-      text: 'Cette application permet aux utilisateurs de rechercher et d’acheter des cartes Pokémon. Elle utilise Vue.js et Vuetify pour une interface fluide.'
+      text: 'Cette application permet aux utilisateurs d\'explorer et d’acquérir des cartes Pokémon. Elle utilise Vue.js et Vuetify pour une interface fluide.'
     }
   },
   {
     id: 3,
-    title: 'Plateforme de Blog',
-    description: 'Une plateforme de blogging avec des fonctionnalités de publication, d\'édition et de gestion des articles pour les utilisateurs.',
-    technologies: ['Next.js', 'Tailwind CSS', 'MongoDB'],
-    link: 'https://example.com/blog',
+    title: 'Application de Gestion des Factures et Garanties',
+    description: 'Une application multiplateforme permettant aux utilisateurs de télécharger, gérer et suivre l\'expiration de leurs factures et garanties, avec des rappels par notifications push, email et SMS.',
+    technologies: [
+      'Ionic', 
+    'Vue.js',
+    'Express',
+    'AWS', 
+    'Supabase',
+    'PostgreSQL',
+    'Firebase',
+    'Nodemailer',
+    'Twilio'
+    ],
+    link: 'https://invoice-warranty-keper.vercel.app', 
     additionalContent: {
-      image: Blog,
-      text: 'Cette plateforme permet aux utilisateurs de publier et de gérer leurs articles de blog. Elle est conçue avec Next.js pour une performance optimale.'
+      image: InvoiceAppImage,
+      text: 'Cette application multiplateforme permet aux utilisateurs de gérer facilement leurs factures et garanties. Grâce à un stockage sécurisé sur AWS S3, les utilisateurs peuvent télécharger et consulter leurs documents directement depuis l\'application. \n Pour garantir une expérience optimale, l\'application envoie des notifications push via Firebase Cloud Messaging (FCM) afin d\'alerter les utilisateurs avant l\'expiration de leurs garanties, leur assurant de ne jamais manquer une échéance importante. \n En complément, des notifications par email sont envoyées grâce à Nodemailer, permettant aux utilisateurs de recevoir des rappels détaillés directement dans leur boîte de réception. \n Pour les utilisateurs préférant un rappel instantané, l\'application utilise également Twilio pour envoyer des notifications par SMS. \n Cette solution complète permet une gestion fluide, centralisée et sécurisée des factures et garanties, avec plusieurs canaux de notification pour s\'assurer que l\'utilisateur soit toujours informé en temps réel.',
     }
-  },
-  {
-    id: 4,
-    title: 'Application de Suivi de Fitness',
-    description: 'Une application mobile pour suivre les entraînements, les objectifs de fitness et les progrès personnels.',
-    technologies: ['React Native', 'Expo', 'GraphQL'],
-    link: 'https://example.com/fitness-app',
-    additionalContent: {
-      image: Fitness,
-      text: 'Cette application mobile aide les utilisateurs à suivre leurs entraînements et à atteindre leurs objectifs de fitness. Développée avec React Native et Expo.'
-    }
-  },
+    },
 ];
 
 export const ProjectList = () => {

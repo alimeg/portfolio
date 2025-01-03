@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaLinkedin, FaGithub, FaJava, FaCode, FaMobileAlt, FaApple, FaAndroid, FaHtml5, FaCss3Alt, FaJs } from 'react-icons/fa';
 import Image from 'next/image';
-import photo from '/app/images/dev-photo.jpeg';
+import photo from 'public/images/dev-photo.jpeg';
 import './components/skillscroller.css';
 import './global.css';
 import { SkillScroller } from './components/skillscroller'; 

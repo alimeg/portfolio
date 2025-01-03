@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { FaReact, FaNodeJs, FaVuejs, FaMobileAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import { SiTailwindcss, SiVuetify, SiGraphql, SiNextdotjs, SiMongodb } from 'react-icons/si';
+import { FaReact, FaNodeJs, FaVuejs, FaMobileAlt, FaChevronDown, FaChevronUp, FaEnvelope, FaServer } from 'react-icons/fa';
+import { SiTailwindcss, SiVuetify, SiGraphql, SiNextdotjs, SiMongodb, SiFirebase, SiPostgresql, SiTwilio } from 'react-icons/si';
 
 const iconMap = {
   'Next.js': <SiNextdotjs className="w-6 h-6 text-[#003366] dark:text-[#66b2ff]" />,
@@ -15,12 +15,44 @@ const iconMap = {
   'React Native': <FaReact className="w-6 h-6 text-blue-500 dark:text-blue-300" />,
   'Expo': <FaMobileAlt className="w-6 h-6 text-purple-600 dark:text-purple-400" />,
   'GraphQL': <SiGraphql className="w-6 h-6 text-pink-600 dark:text-pink-400" />,
+  'Ionic': <FaMobileAlt className="w-6 h-6 text-[#3880ff]" />,
+  'Supabase': (
+    <Image
+      src="/images/supabase.jpeg"
+      alt="Supabase"
+      width={30} height={30}
+      className="max-w-[30px] max-h-[30px] object-contain"
+    />
+  ),
+  'PostgreSQL': <SiPostgresql className="w-6 h-6 text-[#336791]" />,
+  'Firebase': <SiFirebase className="w-6 h-6 text-[#FFCB2B]" />,
+  'Twilio': <SiTwilio className="w-6 h-6 text-[#F22F46]" />,
+  'Nodemailer': <FaEnvelope className="w-6 h-6 text-[#4E8A8B]" />,
+  'Express': <FaServer className="w-6 h-6 text-[#f7a800]" />,
+  'AWS': (
+    <Image
+      src="/images/amazon-s3.jpeg"
+      alt="AWS"
+      width={30} height={30} 
+      className="max-w-[30px] max-h-[30px] object-contain"
+    />
+  ),
 };
 
 const Project = ({ title, description, technologies, link, additionalContent }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpand = () => setIsExpanded(!isExpanded);
+
+  // Fonction de formatage des retours à la ligne
+  const formatText = (text) => {
+    return text.split('\n').map((line, index) => {
+      if (line.trim() === '') {
+        return <br key={index} />;
+      }
+      return <p key={index}>{line}</p>;
+    });
+  };
 
   return (
     <div className="border border-gray-300 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200">
@@ -64,13 +96,31 @@ const Project = ({ title, description, technologies, link, additionalContent }) 
           </a>
         </div>
       </div>
-      {/* Collapsible content */}
-      <div className={`transition-all duration-300 overflow-hidden ${isExpanded ? 'max-h-screen' : 'max-h-0'}`}>
+
+      {/* Contenu dépliable */}
+      <div
+        className={`transition-all duration-500 overflow-hidden ${isExpanded ? 'h-auto' : 'h-0'}`}
+        style={{ maxHeight: isExpanded ? 'none' : '0', overflowY: isExpanded ? 'auto' : 'hidden' }}
+      >
         <div className="mb-4">
           {additionalContent && (
             <>
-              <Image src={additionalContent.image} alt="Project" className="w-full h-auto rounded-lg mb-4" />
-              <p className="text-gray-600 dark:text-gray-400">{additionalContent.text}</p>
+              {/* Image avec 'contain' pour la visibilité */}
+              <div className="w-full h-auto mb-4 overflow-hidden">
+                <Image
+                  src={additionalContent.image}
+                  alt="Project"
+                  className="w-full h-auto object-contain rounded-lg"
+                  layout="responsive"
+                  width={700}
+                  height={500}
+                />
+              </div>
+
+              {/* Applique le formatage des retours à la ligne */}
+              <div className="text-gray-600 dark:text-gray-400">
+                {formatText(additionalContent.text)} {/* Applique ici le formatage */}
+              </div>
             </>
           )}
         </div>

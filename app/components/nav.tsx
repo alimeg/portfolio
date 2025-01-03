@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'; 
-import Logo from '/app/images/logo.png'; 
+import Logo from 'public/images/logo.png'; 
 import './nav.css';
 
 const navItems = {
@@ -13,7 +13,7 @@ const navItems = {
   '/blog': { name: 'Blog' },
   '/projects': { name: 'Projects' },
   '/cv': { name: 'Contact' },
-  '/rapport': { name: 'Rapport' },
+  //'/rapport': { name: 'Rapport' },
 };
 
 export function Navbar() {
